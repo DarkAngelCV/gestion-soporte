@@ -144,6 +144,19 @@ Asignatura: Electivo Angular.
 
 ## 9. Uso de inteligencia artificial
 
-Durante el desarrollo de este proyecto utilicé ChatGPT como apoyo para resolver dudas, entender algunos códigos, corregir errores y aprender cómo conectar las diferentes partes del sistema.
+Durante el desarrollo de este proyecto utilicé **ChatGPT** como herramienta de apoyo para resolver dudas, comprender conceptos y recibir orientación durante la programación.
 
-También fui probando las funciones y revisando cómo trabajaba cada parte para poder comprender mejor el funcionamiento del proyecto.
+La utilicé principalmente para:
+
+- Comprender cómo funciona Angular y cómo organizar sus componentes.
+- Recibir ayuda para desarrollar y revisar el código TypeScript y HTML.
+- Comprender la creación de rutas y operaciones CRUD utilizando Node.js y Express.
+- Resolver dudas sobre la conexión entre el backend y la base de datos MySQL.
+- Identificar y corregir errores durante el desarrollo.
+- Mejorar la documentación y organización del archivo README.
+
+Los ejemplos de código y las sugerencias recibidas fueron revisados y adaptados al funcionamiento de mi proyecto. También realicé modificaciones en los archivos para integrar las diferentes partes del sistema.
+
+Para verificar el funcionamiento, realicé pruebas creando, consultando, editando y eliminando tickets. Además, comprobé las validaciones de los formularios, la conexión con MySQL y la persistencia de los registros después de reiniciar el backend y actualizar la página.
+
+La inteligencia artificial fue utilizada como apoyo para el aprendizaje y desarrollo del proyecto, mientras que la configuración, adaptación del código y comprobación de las funciones se realizaron durante el trabajo práctico.
