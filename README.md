@@ -1,59 +1,149 @@
-# GestionSoporte
+# Sistema de Gestión de Soporte Técnico
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.1.8.
+## 1. De qué trata mi proyecto?
 
-## Development server
+Mi proyecto consiste en crear un sistema web para gestionar solicitudes de soporte técnico.
 
-To start a local development server, run:
+La idea es poder registrar los problemas que tienen los usuarios, guardar su información y después poder revisarlos, modificarlos o eliminarlos.
 
-```bash
-ng serve
+Por ejemplo, si una persona tiene un problema con su computador, impresora o algún programa, se puede crear un ticket para dejar registrado el problema y su prioridad.
+
+Toda esta información se guarda en una base de datos MySQL, por lo que los registros siguen estando disponibles aunque se cierre o reinicie la aplicación.
+
+## 2. Tecnologías que utilicé
+
+Para desarrollar este proyecto utilicé las siguientes tecnologías:
+
+- **Angular 22:** lo utilicé para crear la parte visual de la aplicación.
+- **Node.js:** lo utilicé para ejecutar el servidor.
+- **Express:** lo utilicé para crear las rutas que permiten trabajar con los tickets.
+- **MySQL:** lo utilicé para guardar la información.
+- **HTML y CSS:** los utilicé para crear y darle diseño a la página.
+- **TypeScript y JavaScript:** los utilicé para programar las funciones del sistema.
+
+## 3. Qué permite hacer mi sistema?
+
+El sistema permite realizar las siguientes acciones:
+
+- Crear nuevos tickets de soporte.
+- Ver todos los tickets registrados.
+- Editar la información de un ticket.
+- Eliminar tickets solicitando una confirmación.
+- Seleccionar la categoría del problema.
+- Asignar una prioridad alta, media o baja.
+- Cambiar el estado del ticket.
+- Evitar que se guarden tickets con campos obligatorios vacíos.
+- Guardar la información en MySQL para no perderla al reiniciar el sistema.
+
+También agregué colores para identificar más fácilmente las prioridades y los estados de cada ticket.
+
+## 4. Organización de mi proyecto
+
+Organicé el proyecto de la siguiente manera:
+
+- `src/`: contiene los archivos principales de Angular.
+- `src/app/pages/tickets/`: contiene la página donde se muestran y administran los tickets.
+- `src/app/services/`: contiene el servicio que conecta Angular con el backend.
+- `backend/`: contiene el servidor y la conexión con MySQL.
+- `backend/server.js`: contiene las rutas para crear, consultar, editar y eliminar tickets.
+- `backend/db.js`: contiene la configuración de conexión a la base de datos.
+
+## 5. Configuración de la base de datos
+
+Para guardar la información utilicé MySQL.
+
+Primero creé una base de datos llamada `gestion_soporte` y después creé una tabla llamada `tickets`, donde se almacenan los siguientes datos:
+
+- ID del ticket.
+- Asunto.
+- Solicitante.
+- Descripción.
+- Categoría.
+- Prioridad.
+- Estado.
+- Fecha de registro.
+
+Para crear la base de datos y la tabla se debe ejecutar el siguiente código en MySQL:
+
+```sql
+CREATE DATABASE gestion_soporte;
+USE gestion_soporte;
+
+CREATE TABLE tickets (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    asunto VARCHAR(150) NOT NULL,
+    solicitante VARCHAR(100) NOT NULL,
+    descripcion TEXT NOT NULL,
+    categoria VARCHAR(50) NOT NULL,
+    prioridad VARCHAR(20) NOT NULL,
+    estado VARCHAR(30) NOT NULL DEFAULT 'Pendiente',
+    fechaRegistro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## 6. Cómo ejecutar el proyecto?
 
-## Code scaffolding
+Para ejecutar el sistema se deben iniciar dos servidores.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+### Primero: iniciar el backend
 
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Entrar a la carpeta `backend` desde la terminal y ejecutar:
 
 ```bash
-ng generate --help
+npm install
 ```
 
-## Building
+Después configurar el archivo `.env` con los datos de conexión a MySQL.
 
-To build the project run:
+Luego iniciar el servidor con:
 
 ```bash
-ng build
+node server.js
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+El backend funciona en `http://localhost:3000`.
 
-## Running unit tests
+### Segundo: iniciar el frontend
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+Desde la carpeta principal del proyecto ejecutar:
 
 ```bash
-ng test
+npm install
+ng serve -o
 ```
 
-## Running end-to-end tests
+La aplicación se abrirá en `http://localhost:4200`.
 
-For end-to-end (e2e) testing, run:
+Es necesario tener ambos servidores funcionando para poder utilizar el sistema correctamente.
 
-```bash
-ng e2e
-```
+## 7. Pruebas que realicé
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+Durante el desarrollo fui probando las diferentes funciones para comprobar que trabajaran correctamente.
 
-## Additional Resources
+Las pruebas que realicé fueron:
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- Comprobar que el servidor iniciara correctamente.
+- Comprobar la conexión con MySQL.
+- Crear tickets nuevos.
+- Consultar los tickets registrados.
+- Editar tickets existentes.
+- Eliminar tickets.
+- Comprobar que no se puedan guardar formularios vacíos.
+- Reiniciar la página y comprobar que los tickets siguieran apareciendo.
+- Reiniciar el backend y comprobar que los datos continuaran guardados.
+
+## 8. Datos del estudiante
+
+Nombre: Cristian Vasquez
+
+Carrera: Ingeniería en Informática.
+
+Institución: Instituto Profesional Virginio Gómez.
+
+Asignatura: Electivo Angular.
+
+## 9. Uso de inteligencia artificial
+
+Durante el desarrollo de este proyecto utilicé ChatGPT como apoyo para resolver dudas, entender algunos códigos, corregir errores y aprender cómo conectar las diferentes partes del sistema.
+
+También fui probando las funciones y revisando cómo trabajaba cada parte para poder comprender mejor el funcionamiento del proyecto.

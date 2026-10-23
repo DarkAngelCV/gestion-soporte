@@ -1,0 +1,110 @@
+<div class="container">
+  <header class="header">
+    <div>
+      <h1>Gestión de Soporte Técnico</h1>
+      <p>Administra tus solicitudes de soporte</p>
+    </div>
+    <button class="btn-primary" (click)="limpiarFormulario(); mostrarFormulario = true">
+      + Nuevo ticket
+    </button>
+  </header>
+
+  <section class="ticket-section" *ngIf="mostrarFormulario">
+    <h2>{{ editando ? 'Editar ticket' : 'Registrar nuevo ticket' }}</h2>
+
+    <form (ngSubmit)="crearTicket()">
+      <label>Asunto</label>
+      <input type="text" [(ngModel)]="nuevoTicket.asunto" name="asunto" required>
+
+      <label>Solicitante</label>
+      <input type="text" [(ngModel)]="nuevoTicket.solicitante" name="solicitante" required>
+
+      <label>Descripción</label>
+      <textarea [(ngModel)]="nuevoTicket.descripcion" name="descripcion" required></textarea>
+
+      <label>Categoría</label>
+      <select [(ngModel)]="nuevoTicket.categoria" name="categoria" required>
+        <option value="">Seleccione una categoría</option>
+        <option value="Hardware">Hardware</option>
+        <option value="Software">Software</option>
+        <option value="Redes">Redes</option>
+      </select>
+
+      <label>Prioridad</label>
+      <select [(ngModel)]="nuevoTicket.prioridad" name="prioridad" required>
+        <option value="">Seleccione una prioridad</option>
+        <option value="Alta">Alta</option>
+        <option value="Media">Media</option>
+        <option value="Baja">Baja</option>
+      </select>
+
+      <label>Estado</label>
+      <select [(ngModel)]="nuevoTicket.estado" name="estado" required>
+        <option value="Pendiente">Pendiente</option>
+        <option value="En proceso">En proceso</option>
+        <option value="Resuelto">Resuelto</option>
+      </select>
+
+      <button type="submit" class="btn-primary">
+        {{ editando ? 'Actualizar ticket' : 'Guardar ticket' }}
+      </button>
+
+      <button type="button" (click)="limpiarFormulario()">Cancelar</button>
+    </form>
+  </section>
+
+  <section class="ticket-section">
+    <h2>Listado de tickets</h2>
+
+    <div class="mensaje-error" *ngIf="error">
+      {{ error }}
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Asunto</th>
+          <th>Solicitante</th>
+          <th>Categoría</th>
+          <th>Prioridad</th>
+          <th>Estado</th>
+          <th>Fecha de registro</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let ticket of listaTickets">
+          <td>{{ ticket.asunto }}</td>
+          <td>{{ ticket.solicitante }}</td>
+          <td>{{ ticket.categoria }}</td>
+          <td>
+            <span class="prioridad" [ngClass]="ticket.prioridad.toLowerCase()"> {{ ticket.prioridad }}
+            </span>
+          </td>
+          <td>
+            <span class="estado" [ngClass]="ticket.estado.toLowerCase().replace(' ', '-')">  {{ ticket.estado }}
+            </span>
+          </td>
+          <td>{{ ticket.fechaRegistro | date:'dd/MM/yyyy HH:mm' }}</td>
+          <td>
+            <button class="btn-editar" (click)="editarTicket(ticket)">
+              Editar
+            </button>
+            <button class="btn-eliminar" (click)="eliminarTicket(ticket.id)">
+            Eliminar
+            </button>
+          </td>
+        </tr>
+
+        <tr *ngIf="listaTickets.length === 0 && !error">
+  <td colspan="7">No hay tickets registrados.</td>
+</tr>
+
+<tr *ngIf="error">
+  <td colspan="7">{{ error }}</td>
+</tr>
+      </tbody>
+    </table>
+  </section>
+</div>

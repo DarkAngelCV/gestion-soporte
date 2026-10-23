@@ -1,0 +1,296 @@
+.container {
+  padding: 30px;
+  font-family: Arial, sans-serif;
+  background: #f4f6f9;
+  min-height: 100vh;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.header h1 {
+  color: #24344d;
+}
+
+.header p {
+  color: #777;
+}
+
+.btn-primary {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.stat-card, .ticket-section {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.stat-card p {
+  font-size: 28px;
+  font-weight: bold;
+  color: #2563eb;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.priority, .status {
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+}
+
+.high {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.medium {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.low {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.pending {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.progress {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.resolved {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+/* Colores de prioridad */
+.prioridad {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+.prioridad.alta {
+  background-color: #fee2e2;
+  color: #b91c1c;
+}
+
+.prioridad.media {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.prioridad.baja {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+/* Colores de estado */
+.estado {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+.estado.pendiente {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.estado.en-proceso {
+  background-color: #dbeafe;
+  color: #1d4ed8;
+}
+
+.estado.resuelto {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background: white;
+}
+
+th {
+  background-color: #1e293b;
+  color: white;
+  padding: 14px;
+  text-align: left;
+}
+
+td {
+  padding: 14px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+tr:hover {
+  background-color: #f1f5f9;
+}
+
+td button {
+  padding: 8px 12px;
+  margin: 3px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+td button:hover {
+  opacity: 0.8;
+}
+
+.btn-editar {
+  background-color: #2563eb;
+  color: white;
+}
+
+.btn-eliminar {
+  background-color: #dc2626;
+  color: white;
+}
+
+.btn-editar:hover {
+  background-color: #1d4ed8;
+}
+
+.btn-eliminar:hover {
+  background-color: #b91c1c;
+}
+
+
+/* Formulario de tickets */
+.ticket-section {
+  background: #ffffff;
+  padding: 28px;
+  margin: 25px 0;
+  border-radius: 14px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
+}
+
+.ticket-section h2 {
+  color: #1e293b;
+  margin-bottom: 24px;
+  font-size: 22px;
+}
+
+.ticket-section form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 22px;
+}
+
+.ticket-section label {
+  color: #334155;
+  font-weight: 600;
+  margin-bottom: -6px;
+}
+
+.ticket-section input,
+.ticket-section textarea,
+.ticket-section select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background: #f8fafc;
+  font-size: 14px;
+  outline: none;
+}
+
+.ticket-section input:focus,
+.ticket-section textarea:focus,
+.ticket-section select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.ticket-section textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+/* Descripción ocupa todo el ancho */
+.ticket-section textarea {
+  grid-column: 1 / -1;
+}
+
+/* Botones */
+.ticket-section form button {
+  padding: 12px 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.ticket-section form .btn-primary {
+  background: #2563eb;
+  color: white;
+}
+
+.ticket-section form button[type="button"] {
+  background: #e2e8f0;
+  color: #334155;
+}
+
+/* Adaptación a celulares */
+@media (max-width: 650px) {
+  .ticket-section form {
+    grid-template-columns: 1fr;
+  }
+
+  .ticket-section textarea {
+    grid-column: auto;
+  }
+
+}
+.mensaje-error {
+  background-color: #fee2e2;
+  color: #b91c1c;
+  border: 1px solid #fecaca;
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin: 15px 0;
+  font-weight: 600;
+}
